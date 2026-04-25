@@ -1,55 +1,81 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Gift Card Editor 💖</title>
-  <style>
-    body { text-align:center; background:#ffe6f0; }
+<title>Heartnote 💖</title>
 
-    .card {
-      position: relative;
-      width: 300px;
-      margin: auto;
-    }
+<style>
+body {
+  text-align: center;
+  background: linear-gradient(to bottom, #ffd6e0, #fff0f5);
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 15px;
-    }
+h1 {
+  color: #ff4d88;
+}
 
-    .text {
-      position: absolute;
-      width: 100%;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: black;
-      font-size: 18px;
-      font-weight: bold;
-    }
-  </style>
+input, textarea {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  width: 220px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff4d88;
+  color: white;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.text {
+  position: absolute;
+  width: 80%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
 <h1>Create Your Card 💌</h1>
 
-<input type="text" id="name" placeholder="Name"><br><br>
-<textarea id="msg" placeholder="Message"></textarea><br><br>
-
+<input id="name" placeholder="Name"><br>
+<textarea id="msg" placeholder="Message"></textarea><br>
 <button onclick="updateCard()">Update Card</button>
 
 <div class="card">
-  <img src="card1.png" id="cardImg">
-  <div class="text" id="output"></div>
+  <img src="https://i.imgur.com/8Km9tLL.png">
+  <div class="text">
+    <p id="displayName">For 💖</p>
+    <p id="displayMsg">Your message...</p>
+  </div>
 </div>
 
 <script>
-function updateCard(){
-  let name = document.getElementById("name").value;
-  let msg = document.getElementById("msg").value;
+function updateCard() {
+  document.getElementById("displayName").innerText =
+    "For " + document.getElementById("name").value;
 
-  document.getElementById("output").innerHTML =
-    "For " + name + "<br>" + msg;
+  document.getElementById("displayMsg").innerText =
+    document.getElementById("msg").value;
 }
 </script>
 
